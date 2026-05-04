@@ -7,10 +7,10 @@ const { Server } = require('socket.io');
 require('dotenv').config();
 
 const connectDB = require('./db');
-const errorHandler = require('./errorHandler');
+const errorHandler = require('./middleware/errorHandler');
 
 const authRoutes = require('./auth');
-const requestRoutes = require('.requests');
+const requestRoutes = require('./requests');
 const collectorRoutes = require('./collectors');
 const recyclerRoutes = require('./recyclers');
 const adminRoutes = require('./admin');

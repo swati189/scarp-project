@@ -2,8 +2,8 @@ const express = require('express');
 const {
   getAllRecyclers, getRecycler, createRecycler, updateRecycler,
   deleteRecycler, getRecyclerRequests, markReceived, verifyRecycler,
-} = require('../controllers/recyclerController');
-const { protect, authorize } = require('../middleware/auth');
+} = require('./recyclerController');
+const { protect, authorize } = require('./auth');
 
 const router = express.Router();
 
