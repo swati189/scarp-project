@@ -7,7 +7,7 @@ const { Server } = require('socket.io');
 require('dotenv').config();
 
 const connectDB = require('./db');
-const errorHandler = require('./middleware/errorHandler');
+const errorHandler = require('./errorHandler');
 
 const authRoutes = require('./auth');
 const requestRoutes = require('./requests');
