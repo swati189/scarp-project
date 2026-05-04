@@ -3,8 +3,8 @@ const Collector = require('./Collector');
 const Transaction = require('./Transaction');
 const Notification = require('./Notification');
 const User = require('./User');
-const { assignCollector } = require('../utils/assignmentEngine');
-const { routeToRecycler } = require('../utils/routingEngine');
+const { assignCollector } = require('./assignmentEngine');
+const { routeToRecycler } = require('./routingEngine');
 const { calculateEstimatedPrice, calculateFinalPrice } = require('../utils/priceCalculator');
 
 const emitToUser = (userId, event, data) => {
