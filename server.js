@@ -9,13 +9,13 @@ require('dotenv').config();
 const connectDB = require('./db');
 const errorHandler = require('./errorHandler');
 
-const authRoutes = require('./routes/auth');
-const requestRoutes = require('./routes/requests');
-const collectorRoutes = require('./routes/collectors');
-const recyclerRoutes = require('./routes/recyclers');
-const adminRoutes = require('./routes/admin');
-const notificationRoutes = require('./routes/notifications');
-const transactionRoutes = require('./routes/transactions');
+const authRoutes = require('./auth');
+const requestRoutes = require('.requests');
+const collectorRoutes = require('./collectors');
+const recyclerRoutes = require('./recyclers');
+const adminRoutes = require('./admin');
+const notificationRoutes = require('./notifications');
+const transactionRoutes = require('./transactions');
 
 connectDB();
 
