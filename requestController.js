@@ -1,8 +1,8 @@
-const Request = require('../models/Request');
-const Collector = require('../models/Collector');
-const Transaction = require('../models/Transaction');
-const Notification = require('../models/Notification');
-const User = require('../models/User');
+const Request = require('./Request');
+const Collector = require('./Collector');
+const Transaction = require('./Transaction');
+const Notification = require('./Notification');
+const User = require('./User');
 const { assignCollector } = require('../utils/assignmentEngine');
 const { routeToRecycler } = require('../utils/routingEngine');
 const { calculateEstimatedPrice, calculateFinalPrice } = require('../utils/priceCalculator');
