@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0a1a0f;
+    color: #e2e8f0;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0d1f14;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1a3625;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22c55e;
+  }
+
+  ::selection {
+    background: rgba(34, 197, 94, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-400 text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-surface disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 hover:text-white hover:bg-white/5 font-medium px-4 py-2 rounded-xl transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl p-6 shadow-lg;
+  }
+
+  .card-hover {
+    @apply card hover:border-primary-700 hover:shadow-primary-900/20 hover:shadow-xl transition-all duration-300;
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-surface-border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-white mb-1;
+  }
+
+  .section-subtitle {
+    @apply text-slate-400 text-sm;
+  }
+
+  .stat-card {
+    @apply card flex items-center gap-4;
+  }
+
+  .nav-link {
+    @apply text-slate-400 hover:text-white text-sm font-medium transition-colors duration-200;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .surface {
+    background-color: #0d1f14;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.15);
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+/* Leaflet map overrides */
+.leaflet-container {
+  background: #0d1f14 !important;
+  border-radius: 12px;
+}
+
+.leaflet-control-attribution {
+  display: none !important;
+}
