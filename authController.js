@@ -1,8 +1,8 @@
 const { validationResult } = require('express-validator');
-const User = require('../models/User');
-const Collector = require('../models/Collector');
-const Recycler = require('../models/Recycler');
-const { generateToken } = require('../middleware/auth');
+const User = require('./User');
+const Collector = require('./Collector');
+const Recycler = require('./Recycler');
+const { generateToken } = require('./auth');
 
 // @desc    Register user
 // @route   POST /api/auth/register
