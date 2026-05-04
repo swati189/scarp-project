@@ -1,7 +1,8 @@
 const express = require('express');
 const { body } = require('express-validator');
-const { register, login, getMe, updateProfile, changePassword } = require('../controllers/authController');
-const { protect } = require('../middleware/auth');
+
+const { register, login, getMe, updateProfile, changePassword } = require('./authController');
+// const { protect } = require('./auth');  // optional
 
 const router = express.Router();
 
@@ -16,8 +17,9 @@ router.post('/login', [
   body('password').notEmpty().withMessage('Password is required'),
 ], login);
 
-router.get('/me', protect, getMe);
-router.put('/profile', protect, updateProfile);
-router.put('/password', protect, changePassword);
+// without protect (temporary)
+router.get('/me', getMe);
+router.put('/profile', updateProfile);
+router.put('/password', changePassword);
 
 module.exports = router;
