@@ -4,7 +4,7 @@ const {
   getCollectorRequests, acceptRequest, rejectRequest,
   confirmPickup, markDelivered, completeRequest, getAllRequests,
 } = require('./requestController');
-const { protect, authorize } = require('./auth');
+const { protect, authorize } = require('./middleware/protect');
 const upload = require('./upload');
 
 const router = express.Router();
