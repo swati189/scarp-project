@@ -7,9 +7,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const User = require('./models/User');
-const Collector = require('./models/Collector');
-const Recycler = require('./models/Recycler');
-const Request = require('./models/Request');
+const Collector = require('./Collector');
+const Recycler = require('./Recycler');
+const Request = require('./Request');
 
 const seed = async () => {
   await mongoose.connect(process.env.MONGO_URI);

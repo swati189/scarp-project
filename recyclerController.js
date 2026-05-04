@@ -1,5 +1,5 @@
-const Recycler = require('../models/Recycler');
-const Request = require('../models/Request');
+const Recycler = require('./Recycler');
+const Request = require('./Request');
 
 // @desc    Get all recyclers
 // @route   GET /api/recyclers

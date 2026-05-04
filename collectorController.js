@@ -1,6 +1,6 @@
-const Collector = require('../models/Collector');
-const User = require('../models/User');
-const Request = require('../models/Request');
+const Collector = require('./Collector');
+const User = require('./User');
+const Request = require('./Request');
 
 // @desc    Get collector profile
 // @route   GET /api/collectors/profile

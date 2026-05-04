@@ -1,8 +1,8 @@
-const User = require('../models/User');
-const Request = require('../models/Request');
-const Collector = require('../models/Collector');
-const Recycler = require('../models/Recycler');
-const Transaction = require('../models/Transaction');
+const User = require('./User');
+const Request = require('./Request');
+const Collector = require('./Collector');
+const Recycler = require('./Recycler');
+const Transaction = require('./Transaction');
 
 // @desc    Get dashboard stats
 // @route   GET /api/admin/stats

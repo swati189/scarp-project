@@ -5,7 +5,7 @@ const Notification = require('./Notification');
 const User = require('./User');
 const { assignCollector } = require('./assignmentEngine');
 const { routeToRecycler } = require('./routingEngine');
-const { calculateEstimatedPrice, calculateFinalPrice } = require('../utils/priceCalculator');
+const { calculateEstimatedPrice, calculateFinalPrice } = require('./priceCalculator');
 
 const emitToUser = (userId, event, data) => {
   if (global.io && userId) {

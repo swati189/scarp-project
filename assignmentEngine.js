@@ -1,5 +1,5 @@
-const Collector = require('../models/Collector');
-const Notification = require('../models/Notification');
+const Collector = require('./Collector');
+const Notification = require('./notifications');
 const { haversineDistance } = require('./geoUtils');
 
 /**

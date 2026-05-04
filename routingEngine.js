@@ -1,5 +1,5 @@
-const Recycler = require('../models/Recycler');
-const Notification = require('../models/Notification');
+const Recycler = require('./Recycler');
+const Notification = require('./Notification');
 const { haversineDistance } = require('./geoUtils');
 
 const SCRAP_TO_RECYCLER = {
