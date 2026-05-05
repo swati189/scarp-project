@@ -3,7 +3,8 @@ const {
   getAllRecyclers, getRecycler, createRecycler, updateRecycler,
   deleteRecycler, getRecyclerRequests, markReceived, verifyRecycler,
 } = require('./recyclerController');
-const { protect, authorize } = require('../middleware/protect');
+const { protect, authorize } = require('./middleware/protect');
+
 
 const router = express.Router();
 

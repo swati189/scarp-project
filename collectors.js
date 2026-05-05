@@ -3,7 +3,8 @@ const {
   getCollectorProfile, updateCollectorProfile, toggleAvailability,
   updateLocation, getCollectorStats, getAllCollectors, verifyCollector,
 } = require('./collectorController');
-const { protect, authorize } = require('../middleware/protect');
+const { protect, authorize } = require('./middleware/protect');
+
 
 const router = express.Router();
 
