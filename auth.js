@@ -1,25 +1,48 @@
-const express = require('express');
-const { body } = require('express-validator');
+const jwt = require('jsonwebtoken');
+const User = require('./models/User');
 
-const { register, login, getMe, updateProfile, changePassword } = require('./authController');
-// const { protect } = require('./auth');  // optional
+const protect = async (req, res, next) => {
+  let token;
 
-const router = express.Router();
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    token = req.headers.authorization.split(' ')[1];
+  }
 
-router.post('/register', [
-  body('name').trim().notEmpty().withMessage('Name is required'),
-  body('email').isEmail().withMessage('Valid email is required'),
-  body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
-], register);
+  if (!token) {
+    return res.status(401).json({ success: false, message: 'Not authorized, no token' });
+  }
 
-router.post('/login', [
-  body('email').isEmail().withMessage('Valid email is required'),
-  body('password').notEmpty().withMessage('Password is required'),
-], login);
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decoded.id).select('-password');
+    if (!req.user) {
+      return res.status(401).json({ success: false, message: 'User not found' });
+    }
+    if (!req.user.isActive) {
+      return res.status(403).json({ success: false, message: 'Account is deactivated' });
+    }
+    next();
+  } catch (error) {
+    return res.status(401).json({ success: false, message: 'Token is invalid or expired' });
+  }
+};
 
-// without protect (temporary)
-router.get('/me', getMe);
-router.put('/profile', updateProfile);
-router.put('/password', changePassword);
+const authorize = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({
+        success: false,
+        message: `Role '${req.user.role}' is not authorized to access this route`,
+      });
+    }
+    next();
+  };
+};
 
-module.exports = router;
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE || '7d',
+  });
+};
+
+module.exports = { protect, authorize, generateToken };
